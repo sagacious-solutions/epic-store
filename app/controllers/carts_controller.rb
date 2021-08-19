@@ -1,6 +1,10 @@
 class CartsController < ApplicationController
 
   def show
+
+    # 1 ) If items in the cart, route to normal show
+
+    # 2 ) If items not in cart render other?
   end
 
   def add_item
