@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :categories
   end
   
-  get '/signup' => 'users#new'
+  get '/registration' => 'users#new'
   post '/users' => 'users#create'
   
   resources :about
