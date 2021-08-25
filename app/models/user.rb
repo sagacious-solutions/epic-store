@@ -12,4 +12,10 @@ class User < ActiveRecord::Base
   :length => {:within => 6..40},
   :on => :create
 
+
+  def authenticate_with_credentials (email, password)     
+
+    User.find_by(email: email.strip.downcase)&.authenticate(password)
+  end
 end
+
