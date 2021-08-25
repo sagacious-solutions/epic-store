@@ -6,29 +6,36 @@ require 'user'
 
 RSpec.describe User, type: :model do
   describe 'Validations' do
-    before do
-
-      @category = Category.new(:name => "Electronics")
-      
-
-      @product = Product.new({:id => 1, :name => "Steve", :quantity => 5, :price => 10000})
+    before do 
+      @user = User.new({:first_name => "Steve", :last_name => "Mcneely", :email => "hotmale@hotmail.com", password:"somejunk", password_confirmation:"somejunk"})
     end    
 
 
-    it 'Should have a name' do
-        expect(@product.name).to be_present
+    it 'Should have a first_name' do
+        expect(@user.first_name).to be_present
     end
     
-    it 'Should have a Price' do
-      expect(@product.price).to be_present
+    it 'Should have a last_name' do
+      expect(@user.last_name).to be_present
     end
     
-    it 'Should have a quantity' do
-      expect(@product.quantity).to be_present
+    it 'Should have an email' do
+      expect(@user.email).to be_present
     end
     
-    it 'Should have a id' do
-      expect(@product.id).to be_present
+    it 'Should have a password' do
+      expect(@user.password).to be_present
+    end
+
+    it 'The password fields should match' do
+      expect(@user.password).to eq(@user.password_confirmation)
+    end
+
+    it 'Should have a unique email from other users' do
+      existing_user = User.find_by_email(@user.email)
+
+      puts existing_user
+      expect(existing_user).to be_nil
     end
 
   end
