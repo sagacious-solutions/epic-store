@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
-      redirect_to '/registration_path'
+      redirect_to '/registration'
     end
   end   
 
