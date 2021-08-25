@@ -4,10 +4,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    puts " USER_CONTROLLER CREATE RAN "
-    puts " ***************************USER_CONTROLLER CREATE RAN ************************"
-    puts user_params.inspect()
-
     user = User.new(user_params)
 
 
